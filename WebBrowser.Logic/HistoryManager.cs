@@ -5,7 +5,7 @@ using WebBrowser.Data2.HistoryDataSetTableAdapters;
 
 namespace WebBrowser.Logic
 {
-    class HistoryManager
+    public class HistoryManager
     {
         public static void AddItem(HistoryItem item)
         {

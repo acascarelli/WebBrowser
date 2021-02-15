@@ -49,6 +49,16 @@ namespace WebBrowswer.UI
                 "\nDeveloped by Austin Cascarelli (ajc0109) 2021.");
         }
 
-        
+        private void manageHistoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var historyForm = new HistoryManagerForm();
+            historyForm.ShowDialog();
+        }
+
+        private void manageBookmarksToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var bookmarkForm = new BookmarkManagerForm();
+            bookmarkForm.ShowDialog();
+        }
     }
 }

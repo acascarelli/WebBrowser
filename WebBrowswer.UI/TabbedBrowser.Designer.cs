@@ -86,33 +86,33 @@ namespace WebBrowswer.UI
             // newTabButton
             // 
             this.newTabButton.Name = "newTabButton";
-            this.newTabButton.Size = new System.Drawing.Size(178, 22);
+            this.newTabButton.Size = new System.Drawing.Size(180, 22);
             this.newTabButton.Text = "New Tab";
             this.newTabButton.Click += new System.EventHandler(this.newTabButton_Click);
             // 
             // closeTabButton
             // 
             this.closeTabButton.Name = "closeTabButton";
-            this.closeTabButton.Size = new System.Drawing.Size(178, 22);
+            this.closeTabButton.Size = new System.Drawing.Size(180, 22);
             this.closeTabButton.Text = "Close Current Tab";
             this.closeTabButton.Click += new System.EventHandler(this.closeTabButton_Click);
             // 
             // savePageAsHTMLToolStripMenuItem
             // 
             this.savePageAsHTMLToolStripMenuItem.Name = "savePageAsHTMLToolStripMenuItem";
-            this.savePageAsHTMLToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.savePageAsHTMLToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.savePageAsHTMLToolStripMenuItem.Text = "Save Page As HTML";
             // 
             // printPageToolStripMenuItem
             // 
             this.printPageToolStripMenuItem.Name = "printPageToolStripMenuItem";
-            this.printPageToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.printPageToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.printPageToolStripMenuItem.Text = "Print Page";
             // 
             // exitWebBrowserButton
             // 
             this.exitWebBrowserButton.Name = "exitWebBrowserButton";
-            this.exitWebBrowserButton.Size = new System.Drawing.Size(178, 22);
+            this.exitWebBrowserButton.Size = new System.Drawing.Size(180, 22);
             this.exitWebBrowserButton.Text = "Exit Web Browser";
             this.exitWebBrowserButton.Click += new System.EventHandler(this.exitWebBrowserButton_Click);
             // 
@@ -128,14 +128,16 @@ namespace WebBrowswer.UI
             // manageHistoryToolStripMenuItem
             // 
             this.manageHistoryToolStripMenuItem.Name = "manageHistoryToolStripMenuItem";
-            this.manageHistoryToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.manageHistoryToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.manageHistoryToolStripMenuItem.Text = "Manage History";
+            this.manageHistoryToolStripMenuItem.Click += new System.EventHandler(this.manageHistoryToolStripMenuItem_Click);
             // 
             // manageBookmarksToolStripMenuItem
             // 
             this.manageBookmarksToolStripMenuItem.Name = "manageBookmarksToolStripMenuItem";
-            this.manageBookmarksToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.manageBookmarksToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.manageBookmarksToolStripMenuItem.Text = "Manage Bookmarks";
+            this.manageBookmarksToolStripMenuItem.Click += new System.EventHandler(this.manageBookmarksToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 

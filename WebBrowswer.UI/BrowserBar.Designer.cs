@@ -37,6 +37,7 @@ namespace WebBrowswer.UI
             this.URLTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.GoButton = new System.Windows.Forms.ToolStripButton();
+            this.BookmarkBTN = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,6 +49,7 @@ namespace WebBrowswer.UI
             this.webBrowser1.Name = "webBrowser1";
             this.webBrowser1.Size = new System.Drawing.Size(897, 675);
             this.webBrowser1.TabIndex = 1;
+            this.webBrowser1.Navigated += new System.Windows.Forms.WebBrowserNavigatedEventHandler(this.webBrowser1_Navigated);
             // 
             // BackButton
             // 
@@ -93,7 +95,8 @@ namespace WebBrowswer.UI
             this.ForwardButton,
             this.RefreshButton,
             this.URLTextBox,
-            this.GoButton});
+            this.GoButton,
+            this.BookmarkBTN});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(897, 25);
@@ -109,6 +112,16 @@ namespace WebBrowswer.UI
             this.GoButton.Size = new System.Drawing.Size(23, 22);
             this.GoButton.Text = "Go Button";
             this.GoButton.Click += new System.EventHandler(this.GoButton_Click);
+            // 
+            // BookmarkBTN
+            // 
+            this.BookmarkBTN.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.BookmarkBTN.Image = ((System.Drawing.Image)(resources.GetObject("BookmarkBTN.Image")));
+            this.BookmarkBTN.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BookmarkBTN.Name = "BookmarkBTN";
+            this.BookmarkBTN.Size = new System.Drawing.Size(23, 22);
+            this.BookmarkBTN.Text = "Bookmark";
+            this.BookmarkBTN.Click += new System.EventHandler(this.BookmarkBTN_Click);
             // 
             // BrowserBar
             // 
@@ -134,5 +147,6 @@ namespace WebBrowswer.UI
         private System.Windows.Forms.ToolStripButton GoButton;
         public System.Windows.Forms.WebBrowser webBrowser1;
         public System.Windows.Forms.ToolStripTextBox URLTextBox;
+        private System.Windows.Forms.ToolStripButton BookmarkBTN;
     }
 }

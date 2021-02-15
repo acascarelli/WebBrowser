@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WebBrowser.Logic;
 
 namespace WebBrowswer.UI
 {
@@ -20,12 +21,20 @@ namespace WebBrowswer.UI
         {
             InitializeComponent();
         }
+        private void webBrowser1_Navigated(object sender, WebBrowserNavigatedEventArgs e)
+        {
+            URLTextBox.Text = webBrowser1.Url.ToString();
+            BackLinks.Push(URLTextBox.Text);
+            var item = new HistoryItem();
+            item.URL = URLTextBox.Text;
+            item.Title = webBrowser1.DocumentTitle;
+            item.Date = DateTime.Now;
+            HistoryManager.AddItem(item);
+        }
 
         private void GoButton_Click(object sender, EventArgs e)
         {
             this.webBrowser1.Navigate(URLTextBox.Text);
-            BackLinks.Push(URLTextBox.Text);
-            
         }
 
         private void URLTextBox_KeyDown(object sender, KeyEventArgs e)
@@ -33,8 +42,7 @@ namespace WebBrowswer.UI
             if (e.KeyCode == Keys.Enter)
             {
                 //enter key is down
-                this.webBrowser1.Navigate(URLTextBox.Text);
-                BackLinks.Push(URLTextBox.Text);
+                GoButton_Click(sender, e);
             }
         }
 
@@ -65,6 +73,14 @@ namespace WebBrowswer.UI
             this.webBrowser1.Navigate(URLTextBox.Text);
         }
 
-        
+        private void BookmarkBTN_Click(object sender, EventArgs e)
+        {
+            var item = new BookmarkItem();
+            item.URL = URLTextBox.Text;
+            item.Title = webBrowser1.DocumentTitle;
+            BookmarkManager.AddItem(item);
+        }
+
+
     }
 }
