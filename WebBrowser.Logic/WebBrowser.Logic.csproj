@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WebBrowser.Data\WebBrowser.Data.csproj" />
+    <ProjectReference Include="..\WebBrowser.Data2\WebBrowser.Data2.csproj" />
   </ItemGroup>
 
 </Project>
