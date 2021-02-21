@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using WebBrowser.Logic;
 
 namespace WebBrowswer.UI
 {
@@ -24,7 +18,7 @@ namespace WebBrowswer.UI
             tabControl.TabPages.Add(tp);
         }
 
-        private void newTabButton_Click(object sender, EventArgs e)
+        public void newTabButton_Click(object sender, EventArgs e)
         {
             TabPage tp = new TabPage($"Tab {TabCounter++}");
             BrowserBar bb = new BrowserBar();
@@ -59,6 +53,11 @@ namespace WebBrowswer.UI
         {
             var bookmarkForm = new BookmarkManagerForm();
             bookmarkForm.ShowDialog();
+        }
+
+        private void clearHistoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HistoryManager.deleteAll();
         }
     }
 }

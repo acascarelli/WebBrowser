@@ -45,6 +45,7 @@ namespace WebBrowswer.UI
             this.manageBookmarksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clearHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -86,33 +87,33 @@ namespace WebBrowswer.UI
             // newTabButton
             // 
             this.newTabButton.Name = "newTabButton";
-            this.newTabButton.Size = new System.Drawing.Size(180, 22);
+            this.newTabButton.Size = new System.Drawing.Size(178, 22);
             this.newTabButton.Text = "New Tab";
             this.newTabButton.Click += new System.EventHandler(this.newTabButton_Click);
             // 
             // closeTabButton
             // 
             this.closeTabButton.Name = "closeTabButton";
-            this.closeTabButton.Size = new System.Drawing.Size(180, 22);
+            this.closeTabButton.Size = new System.Drawing.Size(178, 22);
             this.closeTabButton.Text = "Close Current Tab";
             this.closeTabButton.Click += new System.EventHandler(this.closeTabButton_Click);
             // 
             // savePageAsHTMLToolStripMenuItem
             // 
             this.savePageAsHTMLToolStripMenuItem.Name = "savePageAsHTMLToolStripMenuItem";
-            this.savePageAsHTMLToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.savePageAsHTMLToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.savePageAsHTMLToolStripMenuItem.Text = "Save Page As HTML";
             // 
             // printPageToolStripMenuItem
             // 
             this.printPageToolStripMenuItem.Name = "printPageToolStripMenuItem";
-            this.printPageToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.printPageToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.printPageToolStripMenuItem.Text = "Print Page";
             // 
             // exitWebBrowserButton
             // 
             this.exitWebBrowserButton.Name = "exitWebBrowserButton";
-            this.exitWebBrowserButton.Size = new System.Drawing.Size(180, 22);
+            this.exitWebBrowserButton.Size = new System.Drawing.Size(178, 22);
             this.exitWebBrowserButton.Text = "Exit Web Browser";
             this.exitWebBrowserButton.Click += new System.EventHandler(this.exitWebBrowserButton_Click);
             // 
@@ -120,7 +121,8 @@ namespace WebBrowswer.UI
             // 
             this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.manageHistoryToolStripMenuItem,
-            this.manageBookmarksToolStripMenuItem});
+            this.manageBookmarksToolStripMenuItem,
+            this.clearHistoryToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
             this.toolsToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.toolsToolStripMenuItem.Text = "Tools";
@@ -154,6 +156,13 @@ namespace WebBrowswer.UI
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
+            // clearHistoryToolStripMenuItem
+            // 
+            this.clearHistoryToolStripMenuItem.Name = "clearHistoryToolStripMenuItem";
+            this.clearHistoryToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.clearHistoryToolStripMenuItem.Text = "Clear History";
+            this.clearHistoryToolStripMenuItem.Click += new System.EventHandler(this.clearHistoryToolStripMenuItem_Click);
+            // 
             // TabbedBrowser
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -167,6 +176,7 @@ namespace WebBrowswer.UI
             this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(1239, 839);
             this.Name = "TabbedBrowser";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Grooble Chrom";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -189,6 +199,7 @@ namespace WebBrowswer.UI
         private System.Windows.Forms.ToolStripMenuItem manageHistoryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem manageBookmarksToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem clearHistoryToolStripMenuItem;
     }
 }
 

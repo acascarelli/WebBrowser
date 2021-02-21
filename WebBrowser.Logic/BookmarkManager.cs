@@ -7,9 +7,11 @@ namespace WebBrowser.Logic
 {
     public class BookmarkManager
     {
+
+        public static BookmarksTableAdapter adapter = new BookmarksTableAdapter();
+
         public static void AddItem(BookmarkItem item)
         {
-            var adapter = new BookmarksTableAdapter();
             var rows = adapter.GetData();
             bool noMatch = true;
             foreach (var row in rows)
@@ -23,7 +25,6 @@ namespace WebBrowser.Logic
 
         public static List<BookmarkItem> GetItems()
         {
-            var adapter = new BookmarksTableAdapter();
             var results = new List<BookmarkItem>();
             var rows = adapter.GetData();
 
@@ -38,6 +39,11 @@ namespace WebBrowser.Logic
             }
 
             return results;
+        }
+
+        public static void deleteItem(BookmarkItem item)
+        {
+            adapter.Delete(item.Id);
         }
     }
 }

@@ -1,13 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using WebBrowser.Logic;
+
 
 namespace WebBrowswer.UI
 {
@@ -16,6 +11,7 @@ namespace WebBrowswer.UI
 
         Stack<string> BackLinks = new Stack<string>();
         Stack<string> ForwardLinks = new Stack<string>();
+        public HistoryItem lastPage;
 
         public BrowserBar()
         {
@@ -23,26 +19,30 @@ namespace WebBrowswer.UI
         }
         private void webBrowser1_Navigated(object sender, WebBrowserNavigatedEventArgs e)
         {
+            LoadingStatusLabel.Text = "Loaded";
+            webBrowser1.ScriptErrorsSuppressed = true;
             URLTextBox.Text = webBrowser1.Url.ToString();
-            BackLinks.Push(URLTextBox.Text);
             var item = new HistoryItem();
             item.URL = URLTextBox.Text;
             item.Title = webBrowser1.DocumentTitle;
             item.Date = DateTime.Now;
             HistoryManager.AddItem(item);
+            if(lastPage == null || (item.Title != lastPage.Title && item.URL != lastPage.URL))
+            {
+                BackLinks.Push(item.URL);
+                lastPage = item;
+            }
         }
 
-        private void GoButton_Click(object sender, EventArgs e)
-        {
-            this.webBrowser1.Navigate(URLTextBox.Text);
-        }
 
         private void URLTextBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
                 //enter key is down
-                GoButton_Click(sender, e);
+                this.webBrowser1.Navigate(URLTextBox.Text);
+                e.Handled = true;
+                e.SuppressKeyPress = true;
             }
         }
 
@@ -81,6 +81,16 @@ namespace WebBrowswer.UI
             BookmarkManager.AddItem(item);
         }
 
+        private void webBrowser1_ProgressChanged(object sender, WebBrowserProgressChangedEventArgs e)
+        {
+            LoadingBar.Maximum = (int)e.MaximumProgress;
+            if((int)e.CurrentProgress > 0 && (int)e.CurrentProgress < LoadingBar.Maximum)
+                LoadingBar.Value = (int)e.CurrentProgress;
+        }
 
+        private void webBrowser1_Navigating(object sender, WebBrowserNavigatingEventArgs e)
+        {
+            LoadingStatusLabel.Text = "Loading";
+        }
     }
 }

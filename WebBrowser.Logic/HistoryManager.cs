@@ -7,15 +7,20 @@ namespace WebBrowser.Logic
 {
     public class HistoryManager
     {
+        public static HistoryItem lastSite;
+        public static HistoryTableAdapter adapter = new HistoryTableAdapter();
+
         public static void AddItem(HistoryItem item)
         {
-            var adapter = new HistoryTableAdapter();
-            adapter.Insert(item.URL, item.Title, item.Date);
+            if(lastSite == null || item.Title != lastSite.Title)
+            {
+                adapter.Insert(item.URL, item.Title, item.Date);
+                lastSite = item;                
+            }            
         }
 
         public static List<HistoryItem> GetItems()
         {
-            var adapter = new HistoryTableAdapter();
             var results = new List<HistoryItem>();
             var rows = adapter.GetData();
 
@@ -26,11 +31,24 @@ namespace WebBrowser.Logic
                 item.Title = row.Title;
                 item.Date = row.Date;
                 item.Id = row.Id;
-
                 results.Add(item);
             }
 
             return results;
+        }
+
+        public static void deleteItem(HistoryItem item)
+        {
+            adapter.Delete(item.Id, item.Date);
+        }
+
+        public static void deleteAll()
+        {
+            var rows = adapter.GetData();
+            foreach(var row in rows)
+            {
+                adapter.Delete(row.Id, row.Date);
+            }
         }
     }
 }
